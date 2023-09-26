@@ -20,7 +20,9 @@ public class Procedure
 	//no arg constructor
 	public Procedure()
 	{
-		
+		this.procName = " ";
+		this.procDate = " ";
+		this.drName = " ";
 	}
 	
 	//parametrized constructor that initializes procedure's name, date to given values
