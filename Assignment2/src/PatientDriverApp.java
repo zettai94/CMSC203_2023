@@ -19,10 +19,19 @@ public class PatientDriverApp
 		Patient p1 = new Patient("Jenny", "Elaine", "Santori", "123 Main Street", "MyTown", "CA", "01234",
 									"Bill Santori", "100-222-3456", "777-555-1212");
 			
-		//3 instances for procedure class
+		//3 instances for procedure class, use each procedure constructor
 		Procedure proc1 = new Procedure("Physical Exam", "07/20/2019", "Dr. Irvine", 3250.00);
-		Procedure proc2 = new Procedure("X-ray", "07/20/2019", "Dr. Jamison", 5500.43);
-		Procedure proc3 = new Procedure("Blood Test", "07/20/2019", "Dr. June", 1400.75);
+		
+		Procedure proc2 = new Procedure();
+		proc2.setProcName("X-ray");
+		proc2.setProcDate("07/20/2019");
+		proc2.setDrName("Dr. Jamison");
+		proc2.setPrice(5500.43);
+		
+		Procedure proc3 = new Procedure("Blood Test", "07/20/2019");
+		proc3.setDrName("Dr. Smith");
+		proc3.setPrice(1400.75);
+		
 		
 		//call methods
 		displayPatient(p1);
@@ -44,13 +53,13 @@ public class PatientDriverApp
 	public static void displayPatient(Patient p1)
 	{	
 		System.out.println("Patient info: ");
-		System.out.println(p1.toString());		
+		System.out.println(p1);		
 	}
 			
 	//displayProcedure method given procedure object, display procedure's information
 	public static void displayProcedure(Procedure proc)
 	{
-			System.out.println(proc);
+			System.out.println(proc); 
 	}
 	
 	//calculateTotalCharges method that takes 3 procedures as parameter and return total charges of these procedures		
