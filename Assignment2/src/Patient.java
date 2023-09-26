@@ -19,7 +19,16 @@ public class Patient
 	//no arg constructor
 	public Patient()
 	{
-		
+		this.firstName = " ";
+		this.midName = " ";
+		this.lastName = " ";
+		this.add = " ";
+		this.city = " ";
+		this.state = " ";
+		this.zip = " ";
+		this.emerName = " ";
+		this.phone = " ";
+		this.emerPhone = " ";
 	}
 	
 	//parameterized constructor initializes patient's first, mid, last name to given values
@@ -50,7 +59,7 @@ public class Patient
 	public String buildFullName()
 	{
 		String fullName;
-		fullName = firstName + " " + midName + " " + lastName;
+		fullName = firstName + " " + midName + " " + lastName + " " + phone;
 		return fullName;
 	}
 	
