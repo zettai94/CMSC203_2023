@@ -99,6 +99,7 @@ public class CryptoManager {
 		String encryptBell = "";
 		int withinASCIIRange = 128;
 		
+		//if bellasoStr is longer than plainText
 		if (bellasoStr.length() > plainText.length())
 		{
 			for (int i = 0; i < plainText.length(); i++)
@@ -164,21 +165,25 @@ public class CryptoManager {
 	public static String caesarDecryption (String encryptedText, int key) {
 		char letter;
 		int convert;
+		//mke line a String accumulator
 		String line = "";
 		int withinASCIIRange = 128;
 		
 		for (int i = 0; i < encryptedText.length(); i++)
 		{
 			convert = (int) encryptedText.charAt(i) - key;
+			//if convert is less than 0, add 128 to make it within ASCII range
 			while (convert < 0)
 			{
 				convert +=  withinASCIIRange;
 			}
 			
+			//if convert is more than UPPER_RANGE, deduct RANGE
 			if (convert > UPPER_RANGE)
 			{
 				convert -= RANGE;
 			}
+			//if convert is less than LOWER_RANGE, add Range
 			else if(convert < LOWER_RANGE)
 			{
 				convert+= RANGE;
@@ -201,6 +206,7 @@ public class CryptoManager {
 	public static String bellasoDecryption(String encryptedText, String bellasoStr) {
 		int convertCombine;
 		char letter;
+		//initialize an accumulator String
 		String decryptBell = "";
 		
 		if (encryptedText.length() > bellasoStr.length())
@@ -208,7 +214,7 @@ public class CryptoManager {
 			for (int i = 0; i < encryptedText.length(); i++)
 			{
 				convertCombine = (int) (encryptedText.charAt(i) - bellasoStr.charAt(i%bellasoStr.length()));
-				
+				//while convertCombine less than LOWER_RANGE, add RANGE
 				while (convertCombine < LOWER_RANGE)
 				{
 					convertCombine += RANGE;
@@ -222,6 +228,7 @@ public class CryptoManager {
 			for (int i = 0; i < encryptedText.length(); i++)
 			{
 				convertCombine = (int) (encryptedText.charAt(i) - bellasoStr.charAt(i));
+				//while convertCombine less than LOWER_RANGE, add RANGE
 				while (convertCombine < LOWER_RANGE)
 				{
 					convertCombine += RANGE;
